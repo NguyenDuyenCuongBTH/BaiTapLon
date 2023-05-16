@@ -1,0 +1,71 @@
+@model IEnumerable<BTL_Nhom03.Sanpham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sản phẩm</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Thêm sản phẩm</a>
+</p>
+<form asp-controller="SanPham" asp-action="Index">
+    @* <p>
+    <input type="text" name="SearchString" />
+    <input type="submit" value="Lọc" />
+    </p> *@
+    <div class="input-group mb-3 " style="width: 700px">
+        <input type="text" class="form-control" placeholder="Tìm kiếm tên sản phẩm" aria-label="Recipient's username"
+            aria-describedby="button-addon2" name="SearchString">
+        <button class="btn btn-warning" type="submit" id="button-addon2">Tìm kiếm</button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MauSac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaTien)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MauSac)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaTien)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaSP" class="btn btn-primary">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaSP" class="btn btn-info">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaSP" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

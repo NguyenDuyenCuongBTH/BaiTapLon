@@ -1,0 +1,42 @@
+@model BTL_Nhom03.Donhang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Donhang</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Khachhang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Khachhang.TenKhachHang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanpham)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sanpham.TenSP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayBan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayBan)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MaDonHang">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

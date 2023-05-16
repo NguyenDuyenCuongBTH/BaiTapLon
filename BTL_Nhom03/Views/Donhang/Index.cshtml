@@ -1,0 +1,51 @@
+@model IEnumerable<BTL_Nhom03.Donhang>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Thêm đơn hàng</a>
+</p>
+<table class="table" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Khachhang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayBan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khachhang.TenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sanpham.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayBan)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaDonHang" class="btn btn-primary" >Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaDonHang" class="btn btn-info">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaDonHang" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
